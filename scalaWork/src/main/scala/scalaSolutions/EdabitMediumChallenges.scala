@@ -4,7 +4,7 @@ import scala.util.matching.Regex
 
 object EdabitMediumChallenges {
 
-  // Create a funtion that accepts a list of booleans and returns a count for how many are true
+  // Create a function that accepts a list of booleans and returns a count for how many are true
   def countTrue(booleanList: List[Boolean]): Int = {
     booleanList.map{bool: Boolean =>
     if (bool)
@@ -14,7 +14,7 @@ object EdabitMediumChallenges {
     }.sum
   }
 
-  // Create a funtion that accepts a string and returns a function that returns that string
+  // Create a function that accepts a string and returns a function that returns that string
   def redundant(value: String): ()=>String = {
     () => value
   }
