@@ -50,9 +50,40 @@ func WarOfNumbers(numbers []int) int {
 	return Abs(evenSum - oddSum)
 }
 
+// Utility function for War Of Numbers
 func Abs(num int) int {
 	if num < 0 {
 		return -num
 	}
 	return num
+}
+
+// Create a function that finds the sum of an Slice recursively
+func SquarePatch(value int) [][]int {
+	var internalList = []int{}
+	var externalList = [][]int{}
+
+	// Create internal slice
+	for i := 0; i < value; i++ {
+		internalList = append(internalList, value)
+	}
+
+	// Build external slice
+	for i := 0; i < value; i++ {
+		externalList = append(externalList, internalList)
+	}
+
+	return externalList
+}
+
+// Create a function that finds the sum of an slice recursively
+func RecursiveSum(values []int) int {
+	switch len(values) {
+	case 0:
+		return 0
+	case 1:
+		return values[0]
+	default:
+		return values[0] + RecursiveSum(values[1:])
+	}
 }

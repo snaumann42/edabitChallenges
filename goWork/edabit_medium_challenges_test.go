@@ -42,11 +42,29 @@ func TestSliceOfMultiples(t *testing.T) {
 }
 
 func TestWarOfNumbers(t *testing.T) {
-	t.Run("testing redundant function", func(t *testing.T) {
+	t.Run("testing war of numbers function", func(t *testing.T) {
 		AssertEqual(t, 3, WarOfNumbers([]int{8, 5}))
 		AssertEqual(t, 5, WarOfNumbers([]int{1, 2, 3, 4, 5, 6, 7, 8, 9}))
 		AssertEqual(t, 0, WarOfNumbers([]int{50, 100, 149, 1, 200, 199, 3, 2}))
 		AssertEqual(t, 0, WarOfNumbers([]int{}))
+	})
+}
+
+func TestSquarePatch(t *testing.T) {
+	t.Run("testing square patch function", func(t *testing.T) {
+		AssertEqualDeep(t, [][]int{{2, 2}, {2, 2}}, SquarePatch(2))
+		AssertEqualDeep(t, [][]int{{3, 3, 3}, {3, 3, 3}, {3, 3, 3}}, SquarePatch(3))
+		AssertEqualDeep(t, [][]int{{1}}, SquarePatch(1))
+		AssertEqualDeep(t, [][]int{}, SquarePatch(0))
+	})
+}
+
+func TestRecursiveSum(t *testing.T) {
+	t.Run("testing recursive sum function", func(t *testing.T) {
+		AssertEqual(t, 10, RecursiveSum([]int{1, 2, 3, 4}))
+		AssertEqual(t, -3, RecursiveSum([]int{-1, -1, -1}))
+		AssertEqual(t, 1, RecursiveSum([]int{1}))
+		AssertEqual(t, 0, RecursiveSum([]int{}))
 	})
 }
 
