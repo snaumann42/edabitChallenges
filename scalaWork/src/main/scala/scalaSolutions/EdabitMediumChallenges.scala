@@ -26,7 +26,7 @@ object EdabitMediumChallenges {
 
   // Create a function that takes two numbers as arguments (num, length) and
   // returns an array of multiples of num until the list length reaches length.
-  def arrayOfMultiples(num: Int, len: Int): List[Int] = {
+  def listOfMultiples(num: Int, len: Int): List[Int] = {
     (1 to len).map {value =>
       num * value
     }.toList

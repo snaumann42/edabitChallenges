@@ -42,10 +42,10 @@ class EdabitMediumChallengesTest extends AnyFlatSpec {
     assert(!regExEmptyString("hello"))
   }
 
-  "arrayOfMultiples" should "return a list of multiples based on the parameters" in {
-    assert(arrayOfMultiples(7, 5) == List(7, 14, 21, 28, 35))
-    assert(arrayOfMultiples(2, 1) == List(2))
-    assert(arrayOfMultiples(2, 0) == List())
+  "listOfMultiples" should "return a list of multiples based on the parameters" in {
+    assert(listOfMultiples(7, 5) == List(7, 14, 21, 28, 35))
+    assert(listOfMultiples(2, 1) == List(2))
+    assert(listOfMultiples(2, 0) == List())
   }
 
   "warOfNumbers" should "return the difference between the sum of all odds and the sum of all even numbers in provided list" in {
