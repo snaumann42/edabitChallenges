@@ -45,7 +45,7 @@ object EdabitHardChallenges {
 
     def compare(that: SortableTuple[A]): Int = this.index compare that.index
   }
-  
+
   // Calculate the frequencies of the given type and
   // the returned object should contain them in the order recieved
   def FrequencyDistribution[A](values: Vector[A]): Vector[(A, Int)] = {
