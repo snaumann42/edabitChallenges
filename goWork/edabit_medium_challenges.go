@@ -20,7 +20,7 @@ func Redundant(value string) func() string {
 
 // Create a RegEx to check for an empty string
 // Compile regex outside of method call since regex compilation is expensive
-var emptyRegEx, _ = regexp.Compile("^$") // bad scope
+var emptyRegEx, _ = regexp.Compile("^$")
 func RegExpEmptyString(value string) bool {
 	return emptyRegEx.MatchString(value)
 }

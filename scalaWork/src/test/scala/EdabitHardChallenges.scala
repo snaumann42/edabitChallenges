@@ -17,7 +17,7 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
   "oddish evenish method" should "return 'Oddish' or 'Evenish' based on the provided parameter" in {
     assert(OddishEvenish(11) == evenish)
     assert(OddishEvenish(111) == oddish)
-    assert(OddishEvenish(1111) == evenish)
+    asse bn nrt(OddishEvenish(1111) == evenish)
     assert(OddishEvenish(11111) == oddish)
   }
 

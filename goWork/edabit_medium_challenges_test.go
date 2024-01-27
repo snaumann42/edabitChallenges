@@ -1,15 +1,15 @@
 package goWork
 
 import (
-	"reflect"
 	"testing"
+	"goWork/internal/util"
 )
 
 func TestCountBoolean(t *testing.T) {
 	t.Run("testing boolean count function", func(t *testing.T) {
-		AssertEqual(t, 3, CountTrue([]bool{true, false, true, true}))
-		AssertEqual(t, 0, CountTrue([]bool{false, false, false}))
-		AssertEqual(t, 0, CountTrue([]bool{}))
+		util.AssertEqual(t, 3, CountTrue([]bool{true, false, true, true}))
+		util.AssertEqual(t, 0, CountTrue([]bool{false, false, false}))
+		util.AssertEqual(t, 0, CountTrue([]bool{}))
 	})
 }
 
@@ -19,79 +19,52 @@ func TestRedundant(t *testing.T) {
 		var pear = "pear"
 		var empty = ""
 
-		AssertEqual(t, apple, Redundant(apple)())
-		AssertEqual(t, pear, Redundant(pear)())
-		AssertEqual(t, empty, Redundant(empty)())
+		util.AssertEqual(t, apple, Redundant(apple)())
+		util.AssertEqual(t, pear, Redundant(pear)())
+		util.AssertEqual(t, empty, Redundant(empty)())
 	})
 }
 
 func TestEmptyRegexp(t *testing.T) {
 	t.Run("testing empty regexp function", func(t *testing.T) {
-		Assert(t, RegExpEmptyString(""))
-		Assert(t, !RegExpEmptyString("\n"))
-		Assert(t, !RegExpEmptyString(" "))
+		util.Assert(t, RegExpEmptyString(""))
+		util.Assert(t, !RegExpEmptyString("\n"))
+		util.Assert(t, !RegExpEmptyString(" "))
 	})
 }
 
 func TestSliceOfMultiples(t *testing.T) {
 	t.Run("testing slice of multiples function", func(t *testing.T) {
-		AssertEqualDeep(t, []int{7, 14, 21, 28, 35}, SliceOfMultiples(7, 5))
-		AssertEqualDeep(t, []int{2}, SliceOfMultiples(2, 1))
-		AssertEqualDeep(t, []int{}, SliceOfMultiples(2, 0))
+		util.AssertEqualDeep(t, []int{7, 14, 21, 28, 35}, SliceOfMultiples(7, 5))
+		util.AssertEqualDeep(t, []int{2}, SliceOfMultiples(2, 1))
+		util.AssertEqualDeep(t, []int{}, SliceOfMultiples(2, 0))
 	})
 }
 
 func TestWarOfNumbers(t *testing.T) {
 	t.Run("testing war of numbers function", func(t *testing.T) {
-		AssertEqual(t, 3, WarOfNumbers([]int{8, 5}))
-		AssertEqual(t, 5, WarOfNumbers([]int{1, 2, 3, 4, 5, 6, 7, 8, 9}))
-		AssertEqual(t, 0, WarOfNumbers([]int{50, 100, 149, 1, 200, 199, 3, 2}))
-		AssertEqual(t, 0, WarOfNumbers([]int{}))
+		util.AssertEqual(t, 3, WarOfNumbers([]int{8, 5}))
+		util.AssertEqual(t, 5, WarOfNumbers([]int{1, 2, 3, 4, 5, 6, 7, 8, 9}))
+		util.AssertEqual(t, 0, WarOfNumbers([]int{50, 100, 149, 1, 200, 199, 3, 2}))
+		util.AssertEqual(t, 0, WarOfNumbers([]int{}))
 	})
 }
 
 func TestSquarePatch(t *testing.T) {
 	t.Run("testing square patch function", func(t *testing.T) {
-		AssertEqualDeep(t, [][]int{{2, 2}, {2, 2}}, SquarePatch(2))
-		AssertEqualDeep(t, [][]int{{3, 3, 3}, {3, 3, 3}, {3, 3, 3}}, SquarePatch(3))
-		AssertEqualDeep(t, [][]int{{1}}, SquarePatch(1))
-		AssertEqualDeep(t, [][]int{}, SquarePatch(0))
+		util.AssertEqualDeep(t, [][]int{{2, 2}, {2, 2}}, SquarePatch(2))
+		util.AssertEqualDeep(t, [][]int{{3, 3, 3}, {3, 3, 3}, {3, 3, 3}}, SquarePatch(3))
+		util.AssertEqualDeep(t, [][]int{{1}}, SquarePatch(1))
+		util.AssertEqualDeep(t, [][]int{}, SquarePatch(0))
 	})
 }
 
 func TestRecursiveSum(t *testing.T) {
 	t.Run("testing recursive sum function", func(t *testing.T) {
-		AssertEqual(t, 10, RecursiveSum([]int{1, 2, 3, 4}))
-		AssertEqual(t, -3, RecursiveSum([]int{-1, -1, -1}))
-		AssertEqual(t, 1, RecursiveSum([]int{1}))
-		AssertEqual(t, 0, RecursiveSum([]int{}))
+		util.AssertEqual(t, 10, RecursiveSum([]int{1, 2, 3, 4}))
+		util.AssertEqual(t, -3, RecursiveSum([]int{-1, -1, -1}))
+		util.AssertEqual(t, 1, RecursiveSum([]int{1}))
+		util.AssertEqual(t, 0, RecursiveSum([]int{}))
 	})
 }
 
-func AssertEqual(t *testing.T, want, got interface{}) {
-	t.Helper()
-	if got != want {
-		t.Errorf("wanted %+v, got %+v", want, got)
-	}
-}
-
-func AssertEqualDeep(t *testing.T, want, got interface{}) {
-	t.Helper()
-	if !reflect.DeepEqual(want, got) {
-		t.Errorf("wanted %+v, got %+v", want, got)
-	}
-}
-
-func Assert(t *testing.T, got bool) {
-	t.Helper()
-	if !got {
-		t.Errorf("We expected %+v to be true", got)
-	}
-}
-
-func AssertNotEqual(t *testing.T, want, got interface{}) {
-	t.Helper()
-	if got == want {
-		t.Errorf("didn't want %+v", got)
-	}
-}

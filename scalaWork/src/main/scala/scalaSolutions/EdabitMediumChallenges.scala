@@ -21,7 +21,7 @@ object EdabitMediumChallenges {
 
   // Create a RegEx to check for an empty string
   // Compile regex outside of method call since regex compilation is expensive
-  val emptyRegEx: Regex = """^$""".r // bad scope
+  val emptyRegEx: Regex = """^$""".r
   def regExEmptyString(value: String): Boolean = emptyRegEx.matches(value)
 
   // Create a function that takes two numbers as arguments (num, length) and
