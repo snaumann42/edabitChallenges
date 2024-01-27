@@ -33,4 +33,35 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
     assert(3.00 == CalculateBill(List(Grocery("milk", 2, 1.50))))
     assert(0.0 == CalculateBill(List()))
   }
+
+  "FrequencyDistribution method" should "return a frequency count of each value in the order found in the passed in parameter" in {
+    assert(Vector((3, 2), (2, 1), (4, 3)) == FrequencyDistribution(Vector(3, 2, 3, 4, 4, 4)))
+    assert(Vector((3, 2), (4, 3), (2, 1)) != FrequencyDistribution(Vector(3, 2, 3, 4, 4, 4)))
+    assert(Vector(("hello", 3), ("bye", 2)) == FrequencyDistribution(Vector("hello", "bye", "hello", "hello", "bye")))
+    assert(Vector((2.2, 3), (4.4, 2)) == FrequencyDistribution(Vector(2.2, 4.4, 2.2, 2.2, 4.4)))
+  }
+
+  "ReverseOddLengthWords method" should "reverse all odd words in the string parameter" in {
+    assert(ReverseOddLengthWords("One two three four") == "enO owt eerht four")
+    assert(ReverseOddLengthWords("Make sure uoy only esrever sdrow of ddo length")
+      == "Make sure you only reverse words of odd length")
+  }
+
+  "CountLayers method" should "return the layer of rugs passed in" in {
+    assert(0 == CountLayers(List()))
+    assert(2 == CountLayers(List("AAA", "ABA", "AAA")))
+    assert(1 == CountLayers(List("AA", "AA")))
+    assert(5 == CountLayers(
+      List("AAAAAAAAA",
+           "ABBBBBBBA",
+           "ABCCCCCBA",
+           "ABCDDDCBA",
+           "ABCDEDCBA",
+           "ABCDDDCBA",
+           "ABCCCCCBA",
+           "ABBBBBBBA",
+           "AAAAAAAAA")))
+    assert(ReverseOddLengthWords("Make sure uoy only esrever sdrow of ddo length")
+      == "Make sure you only reverse words of odd length")
+  }
 }
