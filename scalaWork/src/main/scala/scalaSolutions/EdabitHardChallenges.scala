@@ -50,7 +50,7 @@ object EdabitHardChallenges {
   }
 
   // Calculate the frequencies of the given type and
-  // the returned object should contain them in the order recieved
+  // the returned object should contain them in the order received
   def FrequencyDistribution[A](values: Vector[A]): Vector[(A, Int)] = {
     var map: Map[A, SortableTuple[A]] = Map()
     var index = 1
@@ -103,4 +103,37 @@ object EdabitHardChallenges {
     }
     largestLayerCount
   }
+
+  val Left = "Left"
+  val Right = "Right"
+  val Neither = ""
+
+  def BinaryTreeSum(arr: Array[Long]): String = {
+    var sumLeft = 0L
+    var sumRight = 0L
+    var min = 1
+    var max = 2
+
+    while (min < arr.length) {
+      val pivot = max/2 + 1
+
+      sumLeft += arr.slice(min, pivot).map{num: Long =>
+          if(num != -1) num else 0
+      }.sum
+      sumRight += arr.slice(pivot, max+1).map{num: Long =>
+        if(num != -1) num else 0
+      }.sum
+
+      min += max
+      max *= 2
+    }
+
+    (sumLeft, sumRight) match {
+      case (0, 0) => Neither
+      case _ if (sumLeft == sumRight) => Neither
+      case _ if (sumLeft > sumRight) => Left
+      case _ if (sumLeft < sumRight) => Right
+    }
+  }
+
 }

@@ -17,7 +17,7 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
   "oddish evenish method" should "return 'Oddish' or 'Evenish' based on the provided parameter" in {
     assert(OddishEvenish(11) == evenish)
     assert(OddishEvenish(111) == oddish)
-    asse bn nrt(OddishEvenish(1111) == evenish)
+    assert(OddishEvenish(1111) == evenish)
     assert(OddishEvenish(11111) == oddish)
   }
 
@@ -61,7 +61,16 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
            "ABCCCCCBA",
            "ABBBBBBBA",
            "AAAAAAAAA")))
-    assert(ReverseOddLengthWords("Make sure uoy only esrever sdrow of ddo length")
-      == "Make sure you only reverse words of odd length")
+  }
+
+  "BinaryTreeSum method" should "return the Left if the left tree sum is larger, Right if the right one is and empty string if there are no nodes or they are equal" in {
+    assert("" == BinaryTreeSum(Array()))
+    assert("" == BinaryTreeSum(Array(3)))
+    assert("Left" == BinaryTreeSum(Array(3, 10)))
+    assert("Right" == BinaryTreeSum(Array(3, 2, 10)))
+    assert("Right" == BinaryTreeSum(Array(1, 4, 100, 5)))
+    assert("Right" == BinaryTreeSum(Array(3, 2, 10, 6, 3, -1, -1)))
+    assert("Left" == BinaryTreeSum(Array(3, 10, 2, -1, -1, 6, 3)))
+    assert("Right" == BinaryTreeSum(Array(3, 10,2, -1,-1,6,3, 4,5,3,7,8,9,2,2)))
   }
 }
