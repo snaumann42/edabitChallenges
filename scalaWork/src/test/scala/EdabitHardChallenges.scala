@@ -73,4 +73,21 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
     assert("Left" == BinaryTreeSum(Array(3, 10, 2, -1, -1, 6, 3)))
     assert("Right" == BinaryTreeSum(Array(3, 10,2, -1,-1,6,3, 4,5,3,7,8,9,2,2)))
   }
+
+  "ParenthesesCluster method" should "return balanced clusters of parentheses" in {
+    assert(List("()", "()", "()") == ParenthesesCluster("()()()"))
+    assert(List("((()))") == ParenthesesCluster("((()))"))
+    assert(List("((()))", "(())", "()", "()", "(()())") == ParenthesesCluster("((()))(())()()(()())"))
+    assert(List("((())())", "(()(()()))") == ParenthesesCluster("((())())(()(()()))"))
+  }
+
+  "Encrypt method" should "return a list of Ints" in {
+    assert(List(72, 29, 7, 0, 3) == encryptLetterValues("Hello"))
+    assert(List(72, 33, -73, 84, -12, -3, 13, -13, -68) == encryptLetterValues("Hi there!"))
+  }
+
+  "Decrypt method" should "return a list of Ints" in {
+    assert(decryptLetterValues(List(72, 29, 7, 0, 3)) == "Hello")
+    assert(decryptLetterValues(List(72, 33, -73, 84, -12, -3, 13, -13, -68)) == "Hi there!")
+  }
 }

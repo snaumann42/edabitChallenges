@@ -3,6 +3,7 @@ package scalaSolutions
 import scala.util.matching.Regex
 import java.time.temporal.ChronoUnit
 import java.time.LocalDate
+import scala.collection.mutable
 import scala.math.BigDecimal
 
 object EdabitHardChallenges {
@@ -134,6 +135,50 @@ object EdabitHardChallenges {
       case _ if (sumLeft > sumRight) => Left
       case _ if (sumLeft < sumRight) => Right
     }
+  }
+
+  // This method takes a string of parentheses and returns clusters of balanced parentheses in a list
+  def ParenthesesCluster(items: String): List[String] = {
+    var currentString = ""
+    var clusterList: List[String] = List()
+    var openCount = 0
+
+    items.foreach{ item =>
+      currentString += item
+      if (item == '('){
+        openCount += 1
+      } else {
+        openCount -= 1
+      }
+
+      if (openCount == 0){
+        clusterList = clusterList :+ currentString
+        currentString = ""
+      }
+    }
+    clusterList
+  }
+
+  // This method "encrypts" a string, using the value of the first letter, then
+  // for every additional letter, the difference between it's value and the
+  // last chars value
+  def encryptLetterValues(message: String): List[Int] = {
+    var encodedMessage: List[Int] = List(message.head.toInt)
+    var lastChar = message.head
+    message.tail.foreach{ char =>
+      encodedMessage = encodedMessage :+ char.toInt - lastChar.toInt
+      lastChar = char
+    }
+    encodedMessage
+  }
+
+  // This method reverses the encryptLetterValues logic to produce a message again
+  def decryptLetterValues(encodedMessage: List[Int]): String = {
+    var message: String = "" + encodedMessage.head.toChar
+    encodedMessage.tail.foreach{ num =>
+      message += (message.last.toInt +  num).toChar
+    }
+    message
   }
 
 }
