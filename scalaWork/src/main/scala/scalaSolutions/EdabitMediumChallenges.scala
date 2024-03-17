@@ -6,7 +6,7 @@ object EdabitMediumChallenges {
 
   // Create a function that accepts a list of booleans and returns a count for how many are true
   def countTrue(booleanList: List[Boolean]): Int = {
-    booleanList.map{bool: Boolean =>
+    booleanList.map{(bool: Boolean) =>
     if (bool)
       1
     else
@@ -56,8 +56,8 @@ object EdabitMediumChallenges {
 
   // Create a function that takes a 0 or positive integer and outputs an n x n squar consisting of only integer n
   def squarePatch(value: Int):List[List[Int]] = {
-    val internalList: List[Int] = (1 to value).map{num: Int => value}.toList
-    (1 to value).map{num:Int => internalList}.toList
+    val internalList: List[Int] = (1 to value).map{(num: Int) => value}.toList
+    (1 to value).map{(num:Int) => internalList}.toList
   }
 
   // Create a function that finds the sum of an List recursively
@@ -71,7 +71,7 @@ object EdabitMediumChallenges {
 
   // Create a function that counts the number of times a character appears in a List[List[Char]]
   def letterCount(charLists: List[List[Char]], searchChar: Char): Int = {
-    charLists.flatten.map{char: Char =>
+    charLists.flatten.map{(char: Char) =>
       if (char == searchChar)
         1
       else

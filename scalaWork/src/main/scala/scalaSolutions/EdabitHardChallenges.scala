@@ -38,7 +38,7 @@ object EdabitHardChallenges {
   // Calculate the total cost of groceries
   def CalculateBill(groceries: List[Grocery]): Double = {
     val totalPrice = groceries.map{
-      grocery: Grocery =>
+      (grocery: Grocery) =>
         grocery.quantity * grocery.price
     }.sum
     BigDecimal(totalPrice).setScale(2,BigDecimal.RoundingMode.HALF_UP).toDouble
@@ -74,7 +74,7 @@ object EdabitHardChallenges {
   // This method will return a string with all odd length words reversed in the string
   def ReverseOddLengthWords(value: String): String = {
     value.split(' ').map{
-      word: String =>
+      (word: String) =>
         if (word.length % 2 == 0) {
           word
         } else {
@@ -118,10 +118,10 @@ object EdabitHardChallenges {
     while (min < arr.length) {
       val pivot = max/2 + 1
 
-      sumLeft += arr.slice(min, pivot).map{num: Long =>
+      sumLeft += arr.slice(min, pivot).map{(num: Long) =>
           if(num != -1) num else 0
       }.sum
-      sumRight += arr.slice(pivot, max+1).map{num: Long =>
+      sumRight += arr.slice(pivot, max+1).map{(num: Long) =>
         if(num != -1) num else 0
       }.sum
 
