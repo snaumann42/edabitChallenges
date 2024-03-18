@@ -90,4 +90,10 @@ class EdabitHardChallengesTest extends AnyFlatSpec {
     assert(decryptLetterValues(List(72, 29, 7, 0, 3)) == "Hello")
     assert(decryptLetterValues(List(72, 33, -73, 84, -12, -3, 13, -13, -68)) == "Hi there!")
   }
+  
+  "allPremutations method" should "return a list of all purmutations of a string" in {
+    assert(1 == allPremutations("a").length)
+    assert(2 == allPremutations("ab").length)
+    assert(6 == allPremutations("abc").length)
+  }
 }

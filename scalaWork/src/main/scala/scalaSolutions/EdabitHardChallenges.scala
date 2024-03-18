@@ -181,4 +181,24 @@ object EdabitHardChallenges {
     message
   }
 
+  def allPremutations(item: String): Vector[String] = {
+    var results = Vector[String]()
+
+    if (item.length == 0){
+    } else if(item.length == 1){
+      results = results :+ item
+    } else {
+      item.zip(0 until item.length).foreach { (tuple: (Char, Int)) =>
+        val currentChar = tuple._1
+        val remainingChars = item.slice(0, tuple._2).concat(item.slice(tuple._2+1, item.length+1))
+        
+        allPremutations(remainingChars).map{(result: String) =>
+          results = results :+ currentChar + result
+        }
+      }
+    }
+    
+    results
+  }
+  
 }
