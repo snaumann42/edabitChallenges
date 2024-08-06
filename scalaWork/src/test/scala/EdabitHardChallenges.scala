@@ -1,6 +1,6 @@
 import org.scalatest._
 import org.scalatest.flatspec.AnyFlatSpec
-import scalaSolutions.EdabitHardChallenges._
+import naumann.scalaSolutions.EdabitHardChallenges._
 import java.time.LocalDate
 
 

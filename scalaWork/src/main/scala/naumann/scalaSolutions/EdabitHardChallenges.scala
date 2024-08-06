@@ -1,4 +1,4 @@
-package scalaSolutions
+package naumann.scalaSolutions
 
 import scala.util.matching.Regex
 import java.time.temporal.ChronoUnit

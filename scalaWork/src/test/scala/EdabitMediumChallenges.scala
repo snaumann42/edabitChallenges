@@ -1,6 +1,6 @@
 import org.scalatest._
 import org.scalatest.flatspec.AnyFlatSpec
-import scalaSolutions.EdabitMediumChallenges._
+import naumann.scalaSolutions.EdabitMediumChallenges._
 
 
 class EdabitMediumChallengesTest extends AnyFlatSpec {
