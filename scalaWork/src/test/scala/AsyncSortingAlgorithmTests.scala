@@ -9,7 +9,7 @@ class AsyncSortingAlgorithmTests extends AsyncFlatSpec{
 
   case class Result(duration: Long, description: String)
 
-  "Comparative testing" should "with a random list, quicksort should be the fastest" in {
+  "Comparative testing" should "with a random list, quick sort should be the fastest" in {
     val testArray = Array.fill(100000)(Random.nextInt(200000))
 
     val results: List[Future[Result]] = List(
@@ -37,7 +37,7 @@ class AsyncSortingAlgorithmTests extends AsyncFlatSpec{
     }
   }
 
-  "Comparative testing" should "with a presorted list, quicksort should be the fastest" in {
+  "Comparative testing" should "with a presorted list, selection sort should be the fastest" in {
     val testArray = Range(0, 100000).toArray
 
     val results: List[Future[Result]] = List(
